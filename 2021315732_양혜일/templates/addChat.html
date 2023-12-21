@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/addChat.css?after">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Final Project</title>
+    <script>
+        $(document).ready(function(){
+            $("#errorMessage").empty();
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            var userId = getCookie('currUser');
+            if (userId) {
+                $.ajax({
+                    url: '/getFriends',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ user_id: userId, friend_id:"" }),
+                    success: function(friends) {
+                        if (friends.length === 0) {
+                            $('#errorMessage').text('채팅을 시작하기 위해서 친구를 추가해 주세요.').show();
+                        }
+                        friends.forEach(function(friend) {
+                            var friendRadio = $('<input>', {
+                                type: 'radio',
+                                id: 'friend_' + friend.friendId,
+                                name: 'friendList',
+                                value: friend.friendId
+                            });
+
+                            var friendLabel = $('<label>', {
+                                for: 'friend_' + friend.friendId
+                            }).text(friend.friendId).css('margin-left','10px');
+                            
+                            var friendPic = $('<img>', {
+                                src: friend.profilePic ? 'data:image/jpeg;base64,' + friend.profilePic : '../static/basicProfile.jpeg',
+                                alt: 'Profile Picture',
+                                width: '50px'
+                            }).css('border-radius', '20px').css('margin-left','10px'); // Adjust styling as needed
+
+                            var friendDiv = $('<div>').addClass('fItem'); // Create a new div for each friend
+                            friendDiv.append(friendRadio).append(friendPic).append(friendLabel);
+                            
+                            $('#friendListContainer').append(friendDiv);
+                        });
+                    },
+                    error: function() {
+                        console.log("Failed to load friend list");
+                    }
+                });
+            }
+            $("#exitBtn").click(function(){
+                window.history.back();
+            });
+
+            $("#startChat").click(function() {
+                var selectedFriendId = $("input[name='friendList']:checked").val();
+
+                if (selectedFriendId) {
+                    window.location.href = '/chat?friendId=' + selectedFriendId;
+                } else {
+                    $("#errorSelect").text("채팅을 시작할 친구를 선택해주세요.").show();
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img id="exitBtn" src="../static/exit.png"/>
+            <p>대화상대 선택</p>
+        </div>
+        <div id="errorMessage" style="color: red; display: none;"></div>
+        <div id="friendListContainer"></div>
+        <div id="errorSelect" style="color: red; display: none;"></div>
+        <button id="startChat">대화 시작</button>
+    </div>
+</body>
+</html>

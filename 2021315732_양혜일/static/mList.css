@@ -1,0 +1,84 @@
+.container{
+    width: 400px;
+    height: 800px;
+    background-color: rgba(245, 245, 245, 0.733);
+    display: flex;
+    border-color: whitesmoke;
+
+}
+
+.nav{
+    width: 15%;
+    height: 100%;
+    float: left;
+    background-color: rgb(240, 240, 240);
+}
+
+#person{
+    margin-top: 25px;
+    margin-left: 13px;
+    width:30px;
+    cursor: pointer;
+}
+#message{
+    margin-top:20px;
+    margin-left: 16px;
+    width:25px;
+    height:30px;
+    cursor: pointer;
+}
+
+#logout{
+    margin-top: 620px;
+    width:20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.content{
+    float: right;
+    margin-left:0%;
+    width: 85%;
+    height: 100%;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+.friend{
+    font-size: 20px;
+    margin-left: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 560;
+}
+
+#addFriend{
+    height: 25px;
+    margin: 23px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.message{
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+}
+
+.opponent{
+    font-weight: 300;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 10px;
+}
+
+.profilePic{
+    margin-right: 10px;
+    width: 50px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+

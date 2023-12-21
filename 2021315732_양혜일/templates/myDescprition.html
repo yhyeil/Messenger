@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/description.css?after">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <meta charset="UTF-8">
+    <title>Final Project</title>
+    <script>
+        $(document).ready(function () {
+
+            $("#exitBtn").click(function(){
+                window.location.href="/fList";
+            });
+
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+
+
+            var userId = getCookie('currUser');
+
+            $.ajax({
+                url: '/get_user_pic_dscrpt/' + userId, 
+                type: 'GET',
+                success: function(user) {
+                    var profilePicSrc = user.profilePic ? 'data:image/jpeg;base64,' + user.profilePic : '../static/basicProfile.jpeg';
+                    $('#profilePic').attr('src', profilePicSrc);
+                    $('#description').text(user.description ? user.description : "");
+                    $('#myId').text(userId);
+                },
+                error: function(error) {
+                    console.error('Error fetching user data:', error);
+                }
+            });
+
+            
+            $('#profilePic').click(function() {
+                var src = $(this).attr('src');
+                $('#enlargedImg').attr('src', src);
+                $('#imageModal').css('display', 'block');
+            });
+            $('.close').click(function() {
+                $('#imageModal').css('display', 'none');
+            });
+
+            $('#settingBtn').click(function(){
+                window.location.href ='/editProfile';
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+
+        <img id="exitBtn" src="../static/exit.png"/>
+        <img id="settingBtn" src="../static/setting.png"/>
+
+        <img id="profilePic"/>
+        <p id="description"></p>
+        <p id="myId"></p>
+       
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="enlargedImg">
+            <div id="caption"></div>
+        </div>
+    </div>
+</body>
+</html>

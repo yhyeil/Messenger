@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/chat.css?after">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/static/chat.js?after" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <title>Final Project</title>
+</head>
+
+<body>
+    <div class = "page_container">
+        <div class="kakao" id="sender">
+            <div style="position: absolute; width:380px; margin-bottom: 50px; ">
+                <img id="exitBtn" src="../static/exit.png"/>
+            </div>
+            <div id="messages" style="padding-top: 20px;">
+
+            </div>
+            <div id="imageModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>
+            
+        </div>
+
+        <div class="input_area">
+           
+            <textarea class="text" id ="sender_text"></textarea>
+            <input type="file" id="fileInput" accept="image/*,video/*" style="display: none;" />
+            <img id="attachment" src="../static/attachment.png"/>
+            <button type="submit" name="sender_button">Send</button>
+            
+        </div>
+    </div>
+</body>
+</html>

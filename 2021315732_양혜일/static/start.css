@@ -1,0 +1,121 @@
+.container{
+    width: 400px;
+    height: 800px;
+    background-color: rgb(255,232,18);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#start_logo{
+    
+    width: 120px;
+    height: 120px;
+}
+
+.login{
+    width: 400px;
+    height: 800px;
+    background-color: rgb(255,232,18);
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#login_logo{
+    position: absolute;
+    top: 25%;
+    width: 120px;
+    height: 120px;
+}
+
+.loginForm{
+    position: absolute;
+    top: 40%;
+}
+
+input{
+    height: 30px;
+    width: 250px;
+    border-width: 1px;
+    border-color: whitesmoke;
+    border-radius: 3px;
+    text-decoration-color: whitesmoke;
+    margin-top:1px;
+}
+
+#loginBtn{
+    margin-top:10px; 
+    width:300; 
+    height:40px;
+    background-color: whitesmoke;
+    
+}
+
+#errorMessage{
+    font-size:11px; 
+    position: absolute; 
+    top:57%; 
+    color: red; 
+    display: none;
+}
+.or-divider {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    text-align: center;
+    color: rgb(107, 75, 38);
+    font-size: 12px;
+}
+
+.line {
+    flex: 1; 
+    border-top: 1px solid rgba(107, 75, 38, 0.521);
+    margin: 10px;
+    width: 100px;
+}
+
+
+.signup{
+    position: absolute;
+    top: 65%;
+    width: 100%;
+    text-align: center;
+}
+
+#signupBtn{
+    margin-top: 20px;
+    margin-right: 1px;
+    height: 40px; /* 조정 가능 */
+    background-color: rgb(255,232,18);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: rgb(107, 75, 38);
+    font-size: 12px;
+    text-decoration: none;
+    padding-bottom:10px;
+}
+
+#findActBtn{
+    margin-top: 20px;
+    margin-left: 1px;
+    height: 40px;
+    background-color: rgb(255,232,18);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: rgb(107, 75, 38);
+}
+
+#resetPwBtn{
+    margin-top: 20px;
+    margin-left: 1px;
+    height: 40px;
+    background-color: rgb(255,232,18);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: rgb(107, 75, 38);
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/start.css?after">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../static/function.js?after" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <title>Final Project</title>
+</head>
+
+<body>
+    <div class="login">
+        <img id="login_logo" src="../static/KakaoTalk_logo.png">
+        <form class="loginForm">
+            <input id="login_id" type="text" placeholder="카카오계정 아이디" required/><br>
+            <input id="login_pw" type="password" autocomplete="off"  placeholder="비밀번호" required/><br>
+            <input id="loginBtn" type="submit" value="로그인">
+        </form>
+        
+        <div id="errorMessage" ></div>
+        
+        <div class="or-divider">
+            <span class="line"></span>
+            또는
+            <span class="line"></span>
+        </div>
+
+        <div class="signup">
+            <a href="/signup" id="signupBtn" >회원가입</a>
+            <span style="color: rgba(107, 75, 38, 0.521);">|</span>
+            <button id="findActBtn">카카오계정찾기</button>
+            <span style="color: rgba(107, 75, 38, 0.521);">|</span>
+            <button id="resetPwBtn">비밀번호 재설정</button>
+        </div>
+    </div>
+</body>
+</html>

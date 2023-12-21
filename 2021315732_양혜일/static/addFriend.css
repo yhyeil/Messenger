@@ -1,0 +1,61 @@
+.container{
+    width: 400px;
+    height: 800px;
+    background-color: rgba(245, 245, 245, 0.733);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+#fId{
+    position: absolute;
+    top: 40%;
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(245, 245, 245, 0.733);
+    margin-bottom: 20px;
+}
+
+#fId:focus{
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+.friendList {
+    list-style-type: none;
+    padding-left: 0;  /* 기본 패딩 제거 */
+    margin-top: 10px; /* fId와의 간격 설정 */
+    position: absolute;
+    top: 50%;
+}
+
+.friendItem{
+    margin: 5px;
+    list-style-type: none;
+    display: flex;
+    margin-bottom:10px;
+    width:200px;
+    margin-left: 1px;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(212, 212, 212); 
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.friend_id{
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.addBtn{
+    background-color: rgb(255,232,18);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
